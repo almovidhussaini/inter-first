@@ -6,8 +6,8 @@ import dotenv from 'dotenv'
 
 
 import UserRoutes from './routes/UserRoutes.js';
-import VerificationRoutes from './routes/verificationRoutes.js';
-import ItemsRoutes from './routes/itemsRoutes.js'
+import VerificationRoutes from './routes/VerificationRoutes.js';
+import ItemsRoutes from './routes/ItemsRoutes.js'
 
 var jsonParser = bodyParser.json()
 dotenv.config()

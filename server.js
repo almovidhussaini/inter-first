@@ -9,10 +9,22 @@ import UserRoutes from './routes/UserRoutes.js';
 import VerificationRoutes from './routes/VerificationRoutes.js';
 import ItemsRoutes from './routes/ItemsRoutes.js'
 
+import path from  'path'
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
 var jsonParser = bodyParser.json()
 dotenv.config()
 const app = express();
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+
+app.use(express.static(path.resolve(__dirname, './build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './build', 'index.html'));
+});
 
 app.use(express.json());
 app.use(bodyParser.json())
